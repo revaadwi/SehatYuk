@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sehatyuk</string>
+    <string name="label_example_name">Hai, Reva Dwi</string>
+    <string name="label_example_place">Ikea Sentul Main Entrance</string>
+    <string name="label_example_time">In: 9.30 AM</string>
+    <string name="label_check_out">Check-Out</string>
+    <string name="label_time_check_in">1 Jam 21 Menit</string>
+    <string name="label_check_in">Check-In</string>
+    <string name="label_masuk_ke_ruang_publik">Masuk ke ruang publik?</string>
+    <string name="label_sertifikat_vaksin">Sertifikat Vaksin</string>
+</resources>

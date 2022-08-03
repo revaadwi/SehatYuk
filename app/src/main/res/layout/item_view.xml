@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:outlineSpotShadowColor="#40545454"
+        app:cardBackgroundColor="#88B5F0"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="40dp"
+        tools:targetApi="p">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/IV_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_sertifikat" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/IV_title"
+        android:layout_width="73dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/label_sertifikat_vaksin"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="11sp" />
+
+</LinearLayout>
