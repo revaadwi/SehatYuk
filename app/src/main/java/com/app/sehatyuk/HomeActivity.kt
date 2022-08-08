@@ -1,12 +1,17 @@
 package com.app.sehatyuk
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanIntentResult
+import com.journeyapps.barcodescanner.ScanOptions
+
 
 class HomeActivity : AppCompatActivity() {
 
@@ -41,8 +46,10 @@ class HomeActivity : AppCompatActivity() {
         val btnCheckout = findViewById<CardView>(R.id.btn_check_out)
 
         btnCheckin.setOnClickListener {
-            cardCheckin.visibility = CardView.GONE
-            cardCheckout.visibility = CardView.VISIBLE
+//            cardCheckin.visibility = CardView.GONE
+//            cardCheckout.visibility = CardView.VISIBLE
+
+            barcodeLauncher.launch(ScanOptions())
         }
 
 
@@ -82,6 +89,20 @@ class HomeActivity : AppCompatActivity() {
         for (i in icon.indices){
             val menu = Menu(icon[i], title[i])
             menuArrayList.add(menu)
+        }
+    }
+
+    private val barcodeLauncher = registerForActivityResult(
+        ScanContract()
+    ) { result: ScanIntentResult ->
+        if (result.contents == null) {
+            Toast.makeText(this@HomeActivity, "Cancelled", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(
+                this@HomeActivity,
+                "Scanned: " + result.contents,
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }
