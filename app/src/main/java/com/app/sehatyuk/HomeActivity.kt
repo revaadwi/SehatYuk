@@ -1,5 +1,6 @@
 package com.app.sehatyuk
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Toast
@@ -95,14 +96,11 @@ class HomeActivity : AppCompatActivity() {
     private val barcodeLauncher = registerForActivityResult(
         ScanContract()
     ) { result: ScanIntentResult ->
-        if (result.contents == null) {
-            Toast.makeText(this@HomeActivity, "Cancelled", Toast.LENGTH_LONG).show()
-        } else {
-            Toast.makeText(
-                this@HomeActivity,
-                "Scanned: " + result.contents,
-                Toast.LENGTH_LONG
-            ).show()
+        if (result.contents != null) {
+            Intent(this, WebViewActivity::class.java).run{
+                putExtra("url", result.contents)
+                startActivity(this)
+            }
         }
     }
 }
